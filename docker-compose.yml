@@ -8,7 +8,7 @@ services:
       - "3001:3001"
     env_file:
       - .env
-  fontend:
+  frontend:
     build: Dockerfile.frontend
     environment:
       - NODE_ENV=production
