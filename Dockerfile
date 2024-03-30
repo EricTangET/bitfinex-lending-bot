@@ -1,5 +1,4 @@
 FROM node:13.8.0-alpine
-LABEL maintainer="royal3501@gmail.com"
 
 RUN mkdir /app
 WORKDIR /app
