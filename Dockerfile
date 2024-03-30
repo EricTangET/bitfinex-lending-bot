@@ -1,14 +1,14 @@
 FROM node:13.8.0-alpine
 
-RUN mkdir /app
+#RUN mkdir /app
 WORKDIR /app
 
 COPY package.json ./
-COPY yarn.lock ./
+#COPY yarn.lock ./
 
-RUN yarn install
+RUN npm install
 
 COPY . .
 
-EXPOSE 5000
-CMD ["yarn", "server"]
+EXPOSE 3001
+CMD ["npm", "server"]
