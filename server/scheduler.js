@@ -7,9 +7,13 @@ module.exports = () => {
   console.log("start scheduler");
 
   schedule.scheduleJob("*/1 * * * *", async function () {
-    console.log(`${toTime()}: Check and submit funding offers automatically`);
-    //await checkAndSubmitOffer();
-    await checkAndSubmitOffer({ ccy: "UST" });
+    try {
+      console.log(`${toTime()}: Check and submit funding offers automatically`);
+      //await checkAndSubmitOffer();
+      await checkAndSubmitOffer({ ccy: "UST" });
+    } catch (e) {
+      console.error(e);
+    }
   });
 
   // TODO: the time might be set differently if you have non taipei timezone
