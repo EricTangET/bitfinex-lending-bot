@@ -1,6 +1,7 @@
 version: "3"
 services:
   backend:
+    context: .
     build: Dockerfile.backend
     environment:
       - NODE_ENV=production
@@ -9,6 +10,7 @@ services:
     env_file:
       - .env
   frontend:
+    context: .
     build: Dockerfile.frontend
     environment:
       - NODE_ENV=production
