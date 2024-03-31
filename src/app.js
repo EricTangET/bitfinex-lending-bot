@@ -4,16 +4,15 @@ import { Spinner } from "baseui/spinner";
 import { Tabs, Tab } from "baseui/tabs";
 import moment from "moment";
 
-import Status from './components/status';
-import Lending from './components/lending';
-import Earning from './components/earning';
+import Status from "./components/status";
+import Lending from "./components/lending";
+import Earning from "./components/earning";
 
 import "moment/locale/zh-tw";
 
 moment.locale("zh-tw");
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3001";
-
 
 function App() {
   const [css, theme] = useStyletron();
@@ -23,13 +22,13 @@ function App() {
 
   React.useEffect(() => {
     async function fetchData() {
-      const res = await fetch(`${API_URL}/api/data`).then(res => res.json());
+      const res = await fetch(`${API_URL}/api/data`).then((res) => res.json());
       if (!res || res.length === 0) {
         return;
       }
 
       const data = {};
-      res.forEach(ccyData => {
+      res.forEach((ccyData) => {
         data[ccyData.ccy] = ccyData;
       });
       setCurrency(res[0].ccy);
@@ -44,7 +43,7 @@ function App() {
         className={css({
           width: "100%",
           marginTop: "100px",
-          textAlign: "center"
+          textAlign: "center",
         })}
       >
         <Spinner color="black" />
@@ -60,7 +59,7 @@ function App() {
         margin: "0 auto",
         padding: "20px",
         maxWidth: "920px",
-        color: theme.colors.primary400
+        color: theme.colors.primary400,
       })}
     >
       <Status
@@ -73,7 +72,7 @@ function App() {
       />
       <div
         className={css({
-          marginTop: "20px"
+          marginTop: "20px",
         })}
       >
         <Tabs

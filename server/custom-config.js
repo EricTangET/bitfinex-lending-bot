@@ -4,7 +4,7 @@ module.exports = {
       MIN_TO_LEND: 50,
       NUM_ALL_IN: 1100,
       SPLIT_UNIT: 1000,
-      RATE_EXPECTED_OVER_AMOUNT: 50000
+      RATE_EXPECTED_OVER_AMOUNT: 50000,
     },
     splitPyramidally: {
       MIN_TO_LEND: 50,
@@ -17,21 +17,22 @@ module.exports = {
         [0.0005, 700],
         [0.0004, 550],
         [0.0003, 400],
-        [0.0002, 300]
+        [0.0002, 300],
       ],
-      RATE_EXPECTED_OVER_AMOUNT: 10000
-    }
+      RATE_EXPECTED_OVER_AMOUNT: 10000,
+    },
   },
   Rate: {
-    EXPECTED_AMOUNT: 50000
+    EXPECTED_AMOUNT: 50000,
   },
   Period: {
     PERIOD_MAP: [
+      [0.5, 120],
       [0.3, 30],
       [0.25, 20],
       [0.2, 10],
       [0.15, 5],
-      [0.12, 3]
-    ]
-  }
+      [0.12, 3],
+    ],
+  },
 };

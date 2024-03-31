@@ -14,14 +14,20 @@ const cache = new NodeCache();
 app.use(cors());
 
 app.get("/api/data", async (req, res) => {
-  const getDataByCurrency = async ccy => {
+  // const serverApiKey = process.env.SERVER_API_KEY;
+  // const apiKey = req.query.key;
+  // if (apiKey !== serverApiKey) {
+  //   return res.status(401).json({ message: "Unauthorized" });
+  // }
+
+  const getDataByCurrency = async (ccy) => {
     const balance = await bitfinext.getBalance(ccy);
     const availableBalance = await bitfinext.getAvailableBalance(ccy);
-    const lending = (await bitfinext.getCurrentLending(ccy)).map(l => ({
+    const lending = (await bitfinext.getCurrentLending(ccy)).map((l) => ({
       amount: l.amount,
       period: l.period,
       rate: compoundInterest(l.rate).toFixed(4),
-      exp: l.time + l.period * 86400000
+      exp: l.time + l.period * 86400000,
     }));
 
     const rate = compoundInterest(await getLowRate(ccy)).toFixed(4);
@@ -32,7 +38,7 @@ app.get("/api/data", async (req, res) => {
     const earnings = await db.earnings
       .find({
         mts: { $gt: day30ago },
-        currency: ccy
+        currency: ccy,
       })
       .sort({ _id: -1 });
 
