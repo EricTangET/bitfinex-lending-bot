@@ -35,7 +35,8 @@
     "auto-submit": "node server/submit-funding-offer",
     "auto-submit:ust": "node server/submit-funding-offer ust",
     "sync-earning": "node server/sync-funding-earning",
-    "clean-earning": "node server/clean-earning"
+    "clean-earning": "node server/clean-earning",
+    "clean-cache": "node server/clean-cache"
   },
   "eslintConfig": {
     "extends": "react-app"
