@@ -27,7 +27,6 @@ module.exports = {
   },
   Period: {
     PERIOD_MAP: [
-      [0.5, 120],
       [0.3, 120],
       [0.25, 20],
       [0.2, 10],
