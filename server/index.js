@@ -24,6 +24,7 @@ app.get("/api/data", async (req, res) => {
     const balance = await bitfinext.getBalance(ccy);
     const availableBalance = await bitfinext.getAvailableBalance(ccy);
     const lending = (await bitfinext.getCurrentLending(ccy)).map((l) => ({
+      id: l.id,
       amount: l.amount,
       period: l.period,
       rate: compoundInterest(l.rate).toFixed(4),

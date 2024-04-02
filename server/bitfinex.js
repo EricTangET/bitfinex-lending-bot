@@ -33,6 +33,7 @@ async function getCurrentLending(ccy = DEFAULT_CCY) {
     rate: c.rate,
     period: c.period,
     time: c.mtsOpening,
+    id: c.id,
   }));
 }
 
