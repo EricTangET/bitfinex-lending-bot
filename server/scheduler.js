@@ -9,7 +9,7 @@ module.exports = () => {
   schedule.scheduleJob("*/1 * * * *", async function () {
     try {
       console.log(`${toTime()}: Check and submit funding offers automatically`);
-      //await checkAndSubmitOffer();
+      await checkAndSubmitOffer();
       await checkAndSubmitOffer({ ccy: "UST" });
     } catch (e) {
       console.error(e);
